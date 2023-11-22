@@ -1,6 +1,9 @@
 Starting audit...
-[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/service/Service.java:1: File does not end with a newline. [NewlineAtEndOfFile]
-[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/service/Service.java:180: Line is longer than 100 characters (found 104). [LineLength]
+[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/main/Main.java:10:21: Using the '.*' form of import should be avoided - fileio.output.*. [AvoidStarImport]
+[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/main/Main.java:29:30: Using the '.*' form of import should be avoided - service.Service.*. [AvoidStarImport]
+[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/service/Service.java:617:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/service/Service.java:617:56: Parameter userDetails should be final. [FinalParameters]
+[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/service/Service.java:647:5: Missing a Javadoc comment. [MissingJavadocMethod]
 [ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/music/Player.java:71:62: 'songInput' hides a field. [HiddenField]
 [ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/music/Player.java:93:68: 'podcastInput' hides a field. [HiddenField]
 [ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/fileio/input/PodcastInput.java:13:5: Class 'PodcastInput' looks like designed for extension (can be subclassed), but the method 'getName' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'PodcastInput' final or making the method 'getName' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
@@ -26,6 +29,5 @@ Starting audit...
 [ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/fileio/input/SongInput.java:74:5: Class 'SongInput' looks like designed for extension (can be subclassed), but the method 'getArtist' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'SongInput' final or making the method 'getArtist' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
 [ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/fileio/input/SongInput.java:78:5: Class 'SongInput' looks like designed for extension (can be subclassed), but the method 'setArtist' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'SongInput' final or making the method 'setArtist' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
 [ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/fileio/extended/SongInputExtended.java:8:5: Class 'SongInputExtended' looks like designed for extension (can be subclassed), but the method 'getLikes' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'SongInputExtended' final or making the method 'getLikes' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
-[ERROR] /home/bogdan/Desktop/oop-project-2023-main/etapa1/./src/user/UserDetails.java:1: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
-Checkstyle ends with 28 errors.
+Checkstyle ends with 30 errors.

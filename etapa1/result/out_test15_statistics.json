@@ -124,6 +124,11 @@
   "timestamp" : 805,
   "message" : "Unlike registered successfully."
 }, {
+  "command" : "showPreferredSongs",
+  "user" : "carol19",
+  "timestamp" : 1000,
+  "result" : [ "Bohemian Rhapsody" ]
+}, {
   "command" : "createPlaylist",
   "user" : "david27",
   "timestamp" : 1150,
@@ -176,6 +181,11 @@
   "timestamp" : 2295,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "showPreferredSongs",
+  "user" : "emily30",
+  "timestamp" : 2300,
+  "result" : [ ]
+}, {
   "command" : "like",
   "user" : "emily30",
   "timestamp" : 2350,
@@ -185,6 +195,11 @@
   "user" : "emily30",
   "timestamp" : 2370,
   "message" : "Successfully added to playlist."
+}, {
+  "command" : "showPreferredSongs",
+  "user" : "emily30",
+  "timestamp" : 2400,
+  "result" : [ "Bohemian Rhapsody" ]
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -197,6 +212,15 @@
   "timestamp" : 2490,
   "message" : "Successfully selected My first playlist."
 }, {
+  "command" : "follow",
+  "user" : "emily30",
+  "timestamp" : 2520,
+  "message" : "Playlist followed successfully."
+}, {
+  "command" : "getTop5Playlists",
+  "timestamp" : 2560,
+  "result" : [ "My first playlist", "Just for fun", "Felt cute might delete later", "Listen on repeat" ]
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 2565,
@@ -208,6 +232,11 @@
   "timestamp" : 2580,
   "message" : "Successfully selected Just for fun."
 }, {
+  "command" : "follow",
+  "user" : "bob35",
+  "timestamp" : 2600,
+  "message" : "Playlist followed successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 2765,
@@ -218,4 +247,27 @@
   "user" : "david27",
   "timestamp" : 2810,
   "message" : "Successfully selected Just for fun."
+}, {
+  "command" : "follow",
+  "user" : "david27",
+  "timestamp" : 2850,
+  "message" : "Playlist followed successfully."
+}, {
+  "command" : "getTop5Playlists",
+  "timestamp" : 3000,
+  "result" : [ "Just for fun", "My first playlist", "Felt cute might delete later", "Listen on repeat" ]
+}, {
+  "command" : "showPreferredSongs",
+  "user" : "bob35",
+  "timestamp" : 3100,
+  "result" : [ "Bohemian Rhapsody" ]
+}, {
+  "command" : "showPreferredSongs",
+  "user" : "carol19",
+  "timestamp" : 3200,
+  "result" : [ "Bohemian Rhapsody" ]
+}, {
+  "command" : "getTop5Songs",
+  "timestamp" : 3300,
+  "result" : [ "Bohemian Rhapsody", "Angie", "Shape of You", "Don't", "Stairway to Heaven" ]
 } ]

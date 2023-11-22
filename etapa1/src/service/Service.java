@@ -176,8 +176,8 @@ public final class Service {
      *
      * @return Podcast list
      */
-    public static List<PodcastInputExtended> searchPodcasts(final Filters filter,
-                                                            final List<PodcastInputExtended> podcasts) {
+    public static List<PodcastInputExtended>
+    searchPodcasts(final Filters filter, final List<PodcastInputExtended> podcasts) {
 
         List<PodcastInputExtended> resultPodcasts = new ArrayList<>();
 
@@ -612,5 +612,81 @@ public final class Service {
             song.incrementLike(timestamp);
             return "Like registered successfully.";
         }
+    }
+
+    public static ArrayList<String> showPreferredSongs(UserDetails userDetails) {
+        ArrayList<String> songs = new ArrayList<>();
+        for (SongInputExtended songInputExtended : userDetails.getLikedSongs()) {
+            songs.add(songInputExtended.getName());
+        }
+        return songs;
+    }
+
+    /**
+     * Method that sorts the likes list and retrieve the first maximum 5 elements
+     * @return List results
+     */
+    public static List<String> getTop5S(final List<SongInputExtended> likes) {
+        List<SongInputExtended> copy = new ArrayList<>(likes);
+        copy.sort((o1, o2) -> {
+            if (o2.getLikes().compareTo(o1.getLikes()) == 0) {
+                return Integer.compare(likes.indexOf(o1), likes.indexOf(o2));
+            } else {
+                return o2.getLikes().compareTo(o1.getLikes());
+            }
+        });
+
+        List<String> results = new ArrayList<>();
+
+        for (int i = 0; i < MAX_RESULTS_LIST && i < copy.size(); i++) {
+            results.add(copy.get(i).getName());
+        }
+        return results;
+    }
+
+    public static List<String> getTop5P(final List<Playlist> playlists) {
+
+        playlists.sort((o1, o2) -> o2.getFollowers().compareTo(o1.getFollowers()));
+        List<String> results = new ArrayList<>();
+        for (int i = 0; i < MAX_RESULTS_LIST && i < playlists.size(); i++) {
+            results.add(playlists.get(i).getName());
+        }
+        return results;
+
+    }
+
+    /**
+     * Method called when user wants to follow a playlist
+     * @return returned string message
+     */
+    public static String follow(final UserDetails user) {
+        if (user.getPlayer() == null || !user.isSelected()) {
+            return "Please select a source before following or unfollowing.";
+        }
+        if (!user.getTypeSearched().equals("playlist")) {
+            return "The selected source is not a playlist.";
+        }
+        Playlist playlist = user.getPlayer().getPlaylist();
+        if (playlist.getOwner().equals(user.getUsername())) {
+            return "You cannot follow or unfollow your own playlist.";
+        }
+        return "Playlist " + user.follow(playlist) + " successfully.";
+    }
+
+    /**
+     * Method used to change the visibility for a playlist
+     * @return String
+     */
+    public static String switchVisibility(final int index,
+                                          final String username,
+                                          final List<Playlist> playlists) {
+        List<Playlist> userPlaylists = retrieveUserPlaylists(username, playlists);
+        if (userPlaylists.size() < index) {
+            return "The specified playlist ID is too high.";
+        }
+        userPlaylists.get(index - 1).changeVisibility();
+        String visibility =
+                userPlaylists.get(index - 1).isPrivatePlaylist() ? "private" : "public";
+        return "Visibility status updated successfully to " + visibility + ".";
     }
 }

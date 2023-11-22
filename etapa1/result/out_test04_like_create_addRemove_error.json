@@ -108,4 +108,14 @@
   "user" : "emily30",
   "timestamp" : 90,
   "message" : "Like registered successfully."
+}, {
+  "command" : "showPlaylists",
+  "user" : "emily30",
+  "timestamp" : 95,
+  "result" : [ {
+    "name" : "Playlist alb pentru zile negre",
+    "songs" : [ "Get Lucky" ],
+    "visibility" : "public",
+    "followers" : 0
+  } ]
 } ]

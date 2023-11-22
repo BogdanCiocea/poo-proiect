@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import fileio.extended.PodcastInputExtended;
 import fileio.input.LibraryInput;
+import fileio.output.*;
+
 import user.UserDetails;
 import music.Playlist;
 import fileio.input.Stats;
@@ -24,26 +26,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 
-import fileio.output.SearchOutput;
-import fileio.output.MessageOutput;
-import fileio.output.StatusOutput;
-
-import static service.Service.repeat;
-import static service.Service.searchSongs;
-import static service.Service.searchPlaylists;
-import static service.Service.searchPodcasts;
-import static service.Service.selectCommand;
-import static service.Service.createPlaylist;
-import static service.Service.load;
-import static service.Service.status;
-import static service.Service.playPause;
-import static service.Service.backward;
-import static service.Service.forward;
-import static service.Service.next;
-import static service.Service.prev;
-import static service.Service.addRemove;
-import static service.Service.shuffle;
-import static service.Service.like;
+import static service.Service.*;
 
 /**
  * The entry point to this homework. It runs the checker that tests your implementation.
@@ -216,16 +199,28 @@ public final class Main {
                     outputs.add(new MessageOutput(comm, username, tmp, message).toObjectNode());
                     break;
                 case "showPreferredSongs":
+                    List<String> results1 = showPreferredSongs(currentUser);
+                    outputs.add(new PreferredOutput(comm, command.getUsername(),
+                            tmp, results1).toObjectNode());
                     break;
                 case "showPlaylists":
+                    outputs.add(new PlaylistsOutput(comm, command.getUsername(), tmp,
+                            retrieveUserPlaylists(username, playlists)).toObjectNode());
                     break;
                 case "getTop5Songs":
+                    outputs.add(new Top5Output(comm, tmp,
+                            getTop5S(library.getSongs())).toObjectNode());
                     break;
                 case "getTop5Playlists":
+                    outputs.add(new Top5Output(comm, tmp, getTop5P(playlists)).toObjectNode());
                     break;
                 case "follow":
+                    message = follow(currentUser);
+                    outputs.add(new MessageOutput(comm, username, tmp, message).toObjectNode());
                     break;
                 case "switchVisibility":
+                    message = switchVisibility(command.getPlaylistId(), username, playlists);
+                    outputs.add(new MessageOutput(comm, username, tmp, message).toObjectNode());
                     break;
                 default:
                     break;
