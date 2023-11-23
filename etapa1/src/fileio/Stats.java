@@ -1,4 +1,4 @@
-package fileio.input;
+package fileio;
 
 public final class Stats {
     private final String name;

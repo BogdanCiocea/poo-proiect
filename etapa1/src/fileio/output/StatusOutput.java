@@ -2,7 +2,7 @@ package fileio.output;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import fileio.input.Stats;
+import fileio.Stats;
 
 public final class StatusOutput extends BaseOutput {
 

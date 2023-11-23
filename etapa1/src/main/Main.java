@@ -11,7 +11,7 @@ import fileio.output.*;
 
 import user.UserDetails;
 import music.Playlist;
-import fileio.input.Stats;
+import fileio.Stats;
 import fileio.input.CommandInput;
 import fileio.extended.SongInputExtended;
 import fileio.input.SongInput;
